@@ -1,2 +1,2 @@
 # TrabajoFinalADD
-trbajo
+CREATE DATABASE 
