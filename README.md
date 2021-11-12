@@ -1,2 +1,3 @@
 # TrabajoFinalADD
-CREATE DATABASE 
+CREATE DATABASE TABLE Paciente
+
