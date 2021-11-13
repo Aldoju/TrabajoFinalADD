@@ -1,8 +1,8 @@
-CREATE DATABASE HcH
+CREATE DATABASE HcHs
 ON PRIMARY
 (
 NAME=hospi_dat,
-FILENAME='C:\HCH\Hch.mdf',
+FILENAME='C:\HCHR\HcHs.mdf',
 SIZE=6,
 MAXSIZE=12,
 FILEGROWTH=1
@@ -10,20 +10,19 @@ FILEGROWTH=1
 LOG ON
 (
 NAME=hospi_log,
-FILENAME='C:\HCH\Hch.ldf',
+FILENAME='C:\HCHR\HcHs.ldf',
 SIZE=3,
 MAXSIZE=5,
 FILEGROWTH=1
 )
 Go
-Use HcH
+Use HcHs
 Go
 
 CREATE TABLE Servicio (
-		nombre VARCHAR(20) NOT NULL,
+        codigoPrestacion INTEGER NOT NULL IDENTITY (1,1),
+		nombre VARCHAR(40) NOT NULL,
 		disponibilidad CHAR(2) NOT NULL,
-		codigoUPS INTEGER NOT NULL,
-		codigoPrestacion INTEGER NOT NULL IDENTITY (1,1),
 		codigoRenaes INTEGER NOT NULL
 	)
 GO
@@ -39,32 +38,36 @@ CREATE TABLE ESTABLECIMIENTO_SALUD_ORIGEN (
 GO
 
 CREATE TABLE RECIEN_NACIDO (
-		corteTardioCordon CHAR(1) NOT NULL,
+		PACIENTE_ID INTEGER NOT NULL,
 		edadGestacional INTEGER NOT NULL,
-		PACIENTE_ID INTEGER NOT NULL
+		corteTardioCordon CHAR(1) NOT NULL
+
+		
 	)
 GO
 
 CREATE TABLE PACIENTE_FEMENINO (
-		fechaProbableParto DATETIME NULL,
-		saludMaterna CHAR(10) NULL,
+		PACIENTE_ID INTEGER NOT NULL,
+		saludMaterna CHAR(15) NULL,
 		alturaUterina INTEGER NULL,
 		edadGestacional INTEGER NULL,
-		partoVertical CHAR(2) NULL,
-		PACIENTE_ID INTEGER NOT NULL
+		fechaProbableParto DATETIME NULL,
+		partoVertical CHAR(2) NULL
 	)
 GO
 
 CREATE TABLE Adolescente (
+		PACIENTE_ID INTEGER NOT NULL,
 		perimetroAbdominal VARCHAR(10) NULL,
 		IMC VARCHAR(10) NULL,
-		PACIENTE_ID INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE Paciente (
-		nombres VARCHAR(20) NOT NULL,
-		apellidos VARCHAR(20) NOT NULL,
+		PACIENTE_ID INTEGER NOT NULL IDENTITY (1,1),
+		numeroHistoriaClinica INTEGER NOT NULL,
+		nombres VARCHAR(50) NOT NULL,
+		apellidos VARCHAR(50) NOT NULL,
 		edad INTEGER NOT NULL,
 		sexo CHAR(1) NOT NULL,
 		fechaNacimiento DATETIME NOT NULL,
@@ -72,28 +75,27 @@ CREATE TABLE Paciente (
 		dni INTEGER NOT NULL,
 		codigoSIS INTEGER NOT NULL,
 		estadoSeguro VARCHAR(10) NOT NULL,
-		numeroHistoriaClinica INTEGER NOT NULL,
-		etnia VARCHAR(15) NOT NULL,
-		PACIENTE_ID INTEGER NOT NULL IDENTITY (1,1)
+		etnia VARCHAR(15) NOT NULL
 	)
 GO
 
 CREATE TABLE ADMISIONISTA_HOSPITAL (
 		codAdmiD INTEGER NOT NULL IDENTITY (1,1),
-		nombres VARCHAR(20) NULL,
+		nombres VARCHAR(30) NOT NULL,
+		apellidos VARCHAR(50) NOT NULL,
 		codigoRenaes INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE Cita (
-		lugarAtencion VARCHAR(18) NOT NULL,
-		atencion VARCHAR(18) NOT NULL,
-		hora VARCHAR(10) NOT NULL,
-		nombreServicio VARCHAR(10) NOT NULL,
+		numeroCita INTEGER NOT NULL IDENTITY (13412,1),
+		nombreServicio VARCHAR(40) NOT NULL,
+		lugarAtencion VARCHAR(30) NOT NULL,
+		atencion VARCHAR(20) NOT NULL,
+		hora VARCHAR(20) NOT NULL,
 		fechaIngreso DATETIME NOT NULL,
 		fechaAlta DATETIME NULL,
-		destinoAsegurado VARCHAR(10) NOT NULL,
-		numeroCita INTEGER NOT NULL IDENTITY (1,1),
+		destinoAsegurado VARCHAR(30) NOT NULL,
 		codigoEspecialista INTEGER NOT NULL,
 		codAdmior INTEGER NOT NULL,
 		codAdmiD INTEGER NOT NULL,
@@ -102,73 +104,73 @@ CREATE TABLE Cita (
 GO
 
 CREATE TABLE Especialista (
-		nombres CHAR(20) NOT NULL,
-		apellidos CHAR(20) NOT NULL,
+		codigoEspecialista INTEGER NOT NULL IDENTITY (1,1),
+		nombres VARCHAR(30) NOT NULL,
+		apellidos VARCHAR(50) NOT NULL,
 		edad INTEGER NOT NULL,
-		numeroCelular INTEGER NOT NULL,
-		direccion VARCHAR(30) NOT NULL,
-		especialidad VARCHAR(20) NOT NULL,
+		numeroCelular VARCHAR(9) NOT NULL,
+		direccion VARCHAR(100) NOT NULL,
+		especialidad VARCHAR(30) NOT NULL,
 		añoContrato VARCHAR(4) NOT NULL,
 		numeroColegiatura INTEGER NOT NULL,
 		numeroRNE INTEGER NOT NULL,
-		numeroEspecialista INTEGER NOT NULL,
-		codigoEspecialista INTEGER NOT NULL IDENTITY (1,1),
 		DEPARTAMENTODEPARTAMENTO_ID INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE Departamento (
-		nombreDepartamento CHAR(10) NOT NULL,
-		DEPARTAMENTO_ID INTEGER NOT NULL IDENTITY (1,1)
+		DEPARTAMENTO_ID INTEGER NOT NULL IDENTITY (1,1),
+		nombreDepartamento VARCHAR(50) NOT NULL
 	)
 GO
 
 CREATE TABLE PRODUCTO_FARMACEUTICO (
-		nombre VARCHAR(18) NOT NULL,
-		concentracion VARCHAR(10) NOT NULL,
-		formaFarmaceutica VARCHAR(10) NOT NULL,
 		codigoMedicamento INTEGER NOT NULL IDENTITY (1,1),
+		nombre VARCHAR(40) NOT NULL,
+		concentracion VARCHAR(10) NOT NULL,
+		formaFarmaceutica VARCHAR(30) NOT NULL,
 		numeroCita INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE Vacuna (
-		nombreVacuna VARCHAR(10) NOT NULL,
-		numeroDosis INTEGER NOT NULL,
 		codigoVacuna INTEGER NOT NULL IDENTITY (1,1),
+		nombreVacuna VARCHAR(20) NOT NULL,
+		numeroDosis INTEGER NOT NULL,
 		numeroCita INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE PRODUCTO_SANITARIO (
-		nombre CHAR(10) NULL,
-		presentacion CHAR(10) NULL,
-		caracteristica CHAR(10) NULL,
 		codigoProductoSan INTEGER NOT NULL IDENTITY (1,1),
+		nombre VARCHAR(30) NULL,
+		presentacion VARCHAR(20) NULL,
+		caracteristica VARCHAR(100) NULL,
 		numeroCita INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE Diagnostico (
+		codigoDiagnostico INTEGER NOT NULL IDENTITY (1,1),
 		afeccion VARCHAR(15) NOT NULL,
 		tipoDiagnostico VARCHAR(10) NOT NULL,
-		codigoDiagnostico INTEGER NOT NULL IDENTITY (1,1),
 		numeroCita INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE ADMISIONISTA_HOSPITAL_ORIGEN (
-		nombres VARCHAR(20) NOT NULL,
 		codAdmior INTEGER NOT NULL IDENTITY (1,1),
-		codigoRenaes INTEGER NOT NULL,
-		turnoTrabajo VARCHAR(10) NOT NULL
+		nombres VARCHAR(40) NOT NULL,
+		turnoTrabajo VARCHAR(20) NOT NULL,
+		codigoRenaes INTEGER NOT NULL
 	)
 GO
 
 CREATE TABLE ESTABLECIMIENTO_SALUD (
 		codigoRenaes INTEGER NOT NULL,
-		distrito VARCHAR(20) NOT NULL,
-		nombreEstablecimiento VARCHAR(20) NOT NULL
+		nombreEstablecimiento VARCHAR(70) NOT NULL,
+		distrito VARCHAR(70) NOT NULL
+		
 	)
 GO
 
@@ -341,5 +343,3 @@ ALTER TABLE ADMISIONISTA_HOSPITAL_ORIGEN ADD CONSTRAINT ADMISIONISTA_HOSPITAL_OR
 	REFERENCES ESTABLECIMIENTO_SALUD_ORIGEN
 	(codigoRenaes)
 GO
-
-
