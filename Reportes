@@ -2,9 +2,31 @@ aqui escribiran los codigo de ingreso de datos y salidad de reportes
 
 
 
-escribiendo codigo de creacion tablas
+Use HcHs
+Go
+
+SET DATEFORMAT dmy
+Go
+
+/*datos de ESTABLECIMIENT_SALUD */
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3742,'Cayetano Heredia','San Martin de Porres')
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3741,'Arzobispo Loayza','Lima')
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3743,'Santa Rosa','Pueblo Libre')
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3744,'Huaycan','Ate')
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3745,'Dos de Mayo','Lima')
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3746,'Vitarte','Ate')
+Insert Into ESTABLECIMIENTO_SALUD VALUES(3747,'Daniel Alcides Carrion','Callao')
+GO
+
+/*datos de ESTABLECIMIENT_SALUD_ORIGEN */
+
+/*datos de ESTABLECIMIENT_SALUD_DESTINO  */
 
 
 
-CREATE TABLE PACIENTE
-STRING NOMBRE,
+
+
+SELECT * FROM ESTABLECIMIENTO_SALUD
+GO 
+
+Insert Into ADMISIONISTA_HOSPITAL VALUES(3742,'Alfredo',231)
