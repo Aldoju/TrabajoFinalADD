@@ -228,3 +228,14 @@ GO
 
 SELECT * FROM Paciente
 Go
+
+Insert Into Paciente VALUES('Juan','Quispe',35,'M','21/04/1986','juanq15@gmail.com',22594534,134558,'activado','mestizo',122345)
+Insert Into Paciente VALUES('Rosa','Perez',25,'F','13/05/1996','rosap@gmail.com',24626748,134559,'suspendido','trigueña',122346)
+Insert Into Paciente VALUES('Damian','Rivera',70,'M','04/01/1951','damirivera@gmail.com',23745345,134560,'activado','mestizo',122347)
+Insert Into Paciente VALUES('Roberto','Artigas',18,'M','11/11/2003','roberto.artigas@gmail.com',27463545,134561,'activado','mestizo',122348)
+Insert Into Paciente VALUES('Santiago','Ortiz',56,'M','11/09/1965','santiort@gmail.com',27463547,134562,'suspendido','mestizo',122349)
+Insert Into Paciente VALUES('Pedro','Ormeño',23	,'M','23/04/1998','pedrito_o@gmail.com',22594534,134563,'activado','trigeña',122350)
+Insert Into Paciente VALUES('Liz','Duran',16,'F','30/05/2005','liz.duran@gmail.com',76534224,134564,'suspendido','mestizo',122351)
+Insert Into Paciente VALUES('Jabes','Montoya',17,'M','25/12/2004','jabemon5@gmail.com',76354453,134565,'activado','moreno',122352)
+Insert Into Paciente VALUES('Nicole','Jaramillo',31,'F','10/03/1990','nicoj.10@gmail.com',23857455,134566,'suspendido','mestizo',122353)
+Insert Into Paciente VALUES('Mabel','Bazan',6,'F','14/06/2015','mabeb@gmail.com',74527384,134567,'activado','morena',122354)
