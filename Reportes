@@ -312,6 +312,5 @@ GO
 
 SELECT * FROM Paciente
 Go
-
 delete from Paciente
 
