@@ -4,6 +4,22 @@ Go
 SET DATEFORMAT dmy
 Go
 
+ALTER TABLE ADMISIONISTA_HOSPITAL
+ADD turnoTrabajo VARCHAR(10)
+
+ALTER TABLE Especialista
+ADD añoContrato INTEGER NOT NULL
+
+ALTER TABLE Cita
+ALTER COLUMN hora time NOT NULL
+
+ALTER TABLE Cita
+ALTER COLUMN fechaIngreso date NOT NULL
+
+ALTER TABLE Cita
+ALTER COLUMN fechaAlta date NULL
+
+
 /*datos de ESTABLECIMIENT_SALUD */
 Insert Into ESTABLECIMIENTO_SALUD VALUES(3742,'Cayetano Heredia','San Martin de Porres')
 Insert Into ESTABLECIMIENTO_SALUD VALUES(3741,'Arzobispo Loayza','Lima')
@@ -42,4 +58,81 @@ SELECT * FROM ESTABLECIMIENTO_SALUD_DESTINO
 GO 
 
 /*PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+
+Insert Into ADMISIONISTA_HOSPITAL_ORIGEN VALUES('Alfredo','Fernandez','mañana',3741)
+Insert Into ADMISIONISTA_HOSPITAL_ORIGEN VALUES('Rosa','Garcia','mañana',3744)
+Insert Into ADMISIONISTA_HOSPITAL_ORIGEN VALUES('Fernanda','Cueva','tarde',3743)
+Insert Into ADMISIONISTA_HOSPITAL_ORIGEN VALUES('Roberto','Cruz','tarde',3745)
+Insert Into ADMISIONISTA_HOSPITAL_ORIGEN VALUES('Tatiana','Sanchez','mañana',3746)
+Insert Into ADMISIONISTA_HOSPITAL_ORIGEN VALUES('Ana','Vigil','mañana',3747)
+GO
+
+SELECT * FROM ADMISIONISTA_HOSPITAL_ORIGEN
+GO 
+
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+Insert Into ADMISIONISTA_HOSPITAL VALUES('Paty','Campos',3742,'mañana')
+Insert Into ADMISIONISTA_HOSPITAL VALUES('Maria','Torres',3742,'mañana')
+Insert Into ADMISIONISTA_HOSPITAL VALUES('Ian','Roca',3742,'tarde')
+Insert Into ADMISIONISTA_HOSPITAL VALUES('Manuel','LLanos',3742,'tarde')
+Insert Into ADMISIONISTA_HOSPITAL VALUES('Romina','Ramirez',3742,'tarde')
+Insert Into ADMISIONISTA_HOSPITAL VALUES('Katherine','Huaman',3742,'mañana')
+GO
+
+SELECT * FROM ADMISIONISTA_HOSPITAL
+GO 
+
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+
+Insert Into Servicio VALUES('Oftalmologia','SI',3742)
+Insert Into Servicio VALUES('Neumologia','NO',3742)
+Insert Into Servicio VALUES('Cardiologia','SI',3742)
+Insert Into Servicio VALUES('Dermatologia','SI',3742)
+Insert Into Servicio VALUES('Geriatria','NO',3742)
+Insert Into Servicio VALUES('Medicina Interna','SI',3742)
+Insert Into Servicio VALUES('Gastroenterologia','SI',3742)
+Insert Into Servicio VALUES('Ginecologia','SI',3742)
+Insert Into Servicio VALUES('Obstetricia','NO',3742)
+Insert Into Servicio VALUES('Urologia','SI',3742)
+Insert Into Servicio VALUES('Pediatria','SI',3742)
+Insert Into Servicio VALUES('Psicologia','SI',3742)
+Insert Into Servicio VALUES('Endocrinologia','SI',3742)
+GO
+
+SELECT * FROM Servicio
+GO 
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+
+Insert Into Especialista VALUES(101,'Carlos', 'Bustamante', 46, '994321910', 'Jiron Retego 123', 'Neumologia', 2001 , 178, 3742)
+Insert Into Especialista VALUES(101,'Juan', 'Rivera', 50, '991567194', 'Jiron Tristan 143', 'Cardiologia', 2005 , 111, 3745)
+Insert Into Especialista VALUES(101,'Alfonso', 'Atencia', 57, '993573670', 'Calle Alameda 356', 'Neumologia', 1980 , 121, 3112)
+Insert Into Especialista VALUES(104,'Carlos', 'Paredes', 47, '992341310', 'Jiron Pleyades 156', 'Oftalmologia', 2005 , 191, 3633)
+Insert Into Especialista VALUES(102,'Rossi', 'Ojeda', 38, '997341450', 'Jiron Ursulas 124', 'Dermatologia', 2002 , 141, 3269)
+Insert Into Especialista VALUES(101,'Alberto', 'Cediño', 38, '957321430', 'Calle Brazil 224', 'Geriatria', 2007 , 191, 3349)
+Insert Into Especialista VALUES(101,'Jonathan', 'Ojeda', 58, '955378450', 'Jiron Hifa 191', 'Medicina Interna', 1993 , 122, 4269)
+Insert Into Especialista VALUES(101,'Raquel', 'Contreras', 50, '992381496', 'Calle Yellow 121', 'Medicina Interna', 1994 , 132, 4219)
+Insert Into Especialista VALUES(101,'Jacobo', 'Diaz', 39, '937642454', 'Jiron Sasdare 177', 'Gastroenterologia', 2009, 143, 4369)
+Insert Into Especialista VALUES(101,'Ernesto', 'Perez', 37, '995321476', 'Jiron Pongol 114', 'Gastroenterologia', 2008 , 193, 5159)
+Insert Into Especialista VALUES(103,'Rachel', 'Gomez', 49, '93361357', 'Calle Terafo 174', 'Ginecologia', 1991 , 301, 6219)
+Insert Into Especialista VALUES(103,'Fredy', 'Sosa', 46, '994371571', 'Calle Tambola 154', 'Obstetricia', 2000 , 352, 7159)
+Insert Into Especialista VALUES(104,'Camila', 'Quiroga', 52, '999181459', 'Jiron Max Tello 144', 'Urologia',1990, 356, 7169)
+Insert Into Especialista VALUES(104,'Dina', 'Martinez', 38, '924321455', 'Jiron Pierola 126', 'Urologia', 2005 , 442, 5669)
+Insert Into Especialista VALUES(106,'Franco', 'Rojas', 49, '923464358', 'Jiron Huaca 174', 'Pediatria', 2000 , 312, 6264)
+Insert Into Especialista VALUES(105,'Erika', 'Silva', 51, '994342451', 'Jiron Juli Tello 144', 'Psicologia', 2001 , 362, 5259)
+Insert Into Especialista VALUES(101,'Elena', 'Soto', 31, '925351255', 'Jiron Yoshihama 144', 'Endocrinologia', 2005 , 412, 7469)
+Insert Into Especialista VALUES(101,'William', 'Morales', 33, '957356780',  'Calle Pleyades 144', 'Endocrinologia', 2001 , 512, 8664)
+Go
+
+SELECT * FROM Especialista
+Go
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+Insert Into Departamento VALUES('Medicina')
+Insert Into Departamento VALUES('Enfermedades Infecciosas y Dermatologicas')
+Insert Into Departamento VALUES('Gineco-Obstetricia')
+Insert Into Departamento VALUES('Cirugia')
+Insert Into Departamento VALUES('Psicologia')
+Insert Into Departamento VALUES('Pediatria')
+Go
+SELECT * FROM Departamento
+Go
 
