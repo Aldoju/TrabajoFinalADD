@@ -4,6 +4,80 @@ Go
 SET DATEFORMAT dmy
 Go
 
+ALTER TABLE Especialista
+DROP COLUMN nombres
+
+ALTER TABLE Especialista
+DROP COLUMN apellidos
+
+ALTER TABLE Especialista
+DROP COLUMN edad
+
+ALTER TABLE Especialista
+DROP COLUMN numeroCelular
+
+ALTER TABLE Especialista
+DROP COLUMN direccion
+
+ALTER TABLE Especialista
+DROP COLUMN especialidad
+
+ALTER TABLE Especialista
+DROP COLUMN añoContrato
+
+ALTER TABLE Especialista
+DROP COLUMN numeroColegiatura
+
+ALTER TABLE Especialista
+DROP COLUMN numeroRNE
+
+
+
+
+
+
+ALTER TABLE Especialista
+ADD nombres VARCHAR(30) NOT NULL
+
+ALTER TABLE Especialista
+ADD apellidos VARCHAR(50) NOT NULL
+
+ALTER TABLE Especialista
+ADD edad INTEGER NOT NULL
+
+ALTER TABLE Especialista
+ADD numeroCelular VARCHAR(9) NOT NULL
+
+ALTER TABLE Especialista
+ADD direccion VARCHAR(100) NOT NULL
+
+ALTER TABLE Especialista
+ADD especialidad VARCHAR(30) NOT NULL
+
+ALTER TABLE Especialista
+ADD añoContrato VARCHAR(4) NOT NULL
+
+ALTER TABLE Especialista
+ADD numeroColegiatura INTEGER NOT NULL
+
+ALTER TABLE Especialista
+ADD numeroRNE INTEGER NOT NULL
+
+
+
+		
+		
+		
+		
+		
+		
+
+		
+
+
+
+
+
 ALTER TABLE ADMISIONISTA_HOSPITAL
 ADD turnoTrabajo VARCHAR(10)
 
@@ -19,6 +93,13 @@ ALTER COLUMN fechaIngreso date NOT NULL
 ALTER TABLE Cita
 ALTER COLUMN fechaAlta date NULL
 
+ALTER TABLE Paciente
+DROP COLUMN numeroHistoriaClinica 
+GO
+
+ALTER TABLE Paciente
+ADD numeroHistoriaClinica Integer NOT NULL
+GO
 
 /*datos de ESTABLECIMIENT_SALUD */
 Insert Into ESTABLECIMIENTO_SALUD VALUES(3742,'Cayetano Heredia','San Martin de Porres')
@@ -136,3 +217,14 @@ Go
 SELECT * FROM Departamento
 Go
 
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+ALTER TABLE Cita
+Alter Column hora time NOT NULL
+Insert Into Cita VALUES('','Intramural','Referencia',10:15:40.0000,)
+
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+Insert Into Paciente VALUES('Juan','Quispe',35,'M','2021/05/12','juanq15@gmail.com',22594534,134558,'activo','mestizo',122345)
+GO
+
+SELECT * FROM Paciente
+Go
