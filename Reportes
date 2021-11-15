@@ -1,4 +1,5 @@
 
+
 CREATE DATABASE HcHs
 ON PRIMARY
 (
@@ -92,7 +93,7 @@ GO
 
 
 CREATE TABLE Cita (
-		numeroCita INTEGER NOT NULL IDENTITY (13412,1),
+		numeroCita INTEGER NOT NULL IDENTITY (13453,1),
 		nombreServicio VARCHAR(40) NOT NULL,
 		hora time NOT NULL,
 		fechaIngreso DATE NOT NULL,
@@ -482,6 +483,7 @@ Go
 SELECT * FROM Especialista
 Go
 
+Select* From Especialista
 
 
 
@@ -565,19 +567,75 @@ Go
 
 
 /*PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
-Insert Into Cita VALUES('Cardiologia','10:15','05/12/2021','--' ,'Cita',10162,3742,3742)
-Insert Into Cita VALUES('Medicina Interna','16:00','15/03/2021','-','cita',10168,3743,3742)
-Insert Into Cita VALUES('Pediatria','16:30','24/01/2021','-','cita',10175,3744,3742)
-Insert Into Cita VALUES('Medicina Interna','11:30','02/12/2021','-','cita',10167,3745,3742)
-Insert Into Cita VALUES('Cardiologia','12:30','05/03/2021','10/04/21','emergencia',10162,3746,3742)
-Insert Into Cita VALUES('Psicologia','13:30','23/04/2021','-','cita',10176,3747,3742)
-Insert Into Cita VALUES('Neumologia','15:00','12/01/2021','-','cita',10161,3748,3742)
-Insert Into Cita VALUES('Obstetricia','16:42','24/08/2021','28/08/2021','emergencia',10172,3749,3742)
-Insert Into Cita VALUES('Oftalmonogia','15:00','05/03/2021','05/03/2021','cita',10164,3750,3742)
-Insert Into Cita VALUES('Pediatria','10:30','24/11/2021','-','cita',10175,3751,3742)
-Insert Into Cita VALUES('Medicina Interna','11:30','02/10/2021','-','cita',10168,3752,3742)
-Insert Into Cita VALUES('Cardiologia','15:30','06/09/2021','16/09/21','emergencia',10162,3753,3742)
-INSERT INTO Cita VALUES('Endocrinologia','13:45','22/04//2021','26/04/2021','emergencia',10177,3754,3742)
-INSERT INTO Cita VALUES('Dermatologia','18:00','27/05/2021','27/05/2021','cita',10165,3755,3742)
-INSERT INTO Cita VALUES('Gastroenterologia','10:00','01/04/2021','03/04/2021','emergencia',10170,3756,3742)
+Insert Into Cita VALUES('Cardiologia','10:15','05/12/2021',NULL,'Cita',10144,1256,1477,5832147)
+Insert Into Cita VALUES('Medicina Interna','16:00','15/03/2021',NULL,'Cita',10150,1258,1478,5832148)
+Insert Into Cita VALUES('Pediatria','16:30','24/01/2021',NULL,'Cita',10157,1259,1479,5832174)
+Insert Into Cita VALUES('Medicina Interna','11:30','02/12/2021',NULL,'Cita',10150,1258,1476,5832146)
+Insert Into Cita VALUES('Cardiologia','12:30','05/03/2021','10/04/21','Emergencia',10144,1260,1480,5832178)
+Insert Into Cita VALUES('Psicologia','13:30','23/04/2021',NULL,'Cita',10158,1256,1478,5832184)
+Insert Into Cita VALUES('Neumologia','15:00','12/01/2021',NULL,'Cita',10143,1258,1478,5832162)
+Insert Into Cita VALUES('Obstetricia','16:42','24/08/2021','28/08/2021','Emergencia',10154,1257,1478,5832169)
+Insert Into Cita VALUES('Oftalmonogia','15:00','05/03/2021','05/03/2021','Cita',10146,1260,1478,5832170)
+Insert Into Cita VALUES('Pediatria','10:30','24/11/2021',NULL,'Cita',10157,1257,1476,5832182)
+Insert Into Cita VALUES('Medicina Interna','11:30','02/10/2021',NULL,'Cita',10150,1256,1477,5832183)
+Insert Into Cita VALUES('Cardiologia','15:30','06/09/2021','16/09/21','Emergencia',10144,1257,1478,5832189)
+INSERT INTO Cita VALUES('Endocrinologia','13:45','22/04/2021','26/04/2021','Emergencia',10159,1256,1478,5832185)
+INSERT INTO Cita VALUES('Dermatologia','18:00','27/05/2021','27/05/2021','Cita',10147,1259,1479,5832171)
+INSERT INTO Cita VALUES('Gastroenterologia','10:00','01/04/2021','03/04/2021','Emergencia',10151,1260,1476,5832172)
 Go
+
+SELECT * FROM Cita
+Go
+
+DELETE FROM Cita
+
+
+
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Amoxicilina','250mg/5mlLX 60 mL','SUS',3744)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Mebendazol', '200mg+40 mg/5mL x 60 mL', 'SUS',3756)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Oxitocina', '100mg/5mLx 30 mL', 'SUS',3749)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Paracetamol', '10 UI', 'INY',3743)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Sulfato Ferroso', '120 mg/5 mL x 60 mL','JBE',3742)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Multimicronutrientes', '400ug+60mg Fe', 'TAB',3751)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Acido Folico', '12.5 mg Fe', 'SB1',3754)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Albiglutida', '15mg Fe/5mL x 180 mL', 'JBE',3745)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Sulfametoxazol', '14.5mg/ 4mLx 25mL', 'TA2',3746)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Alogliptina', '125mg/4mLx 15mL', 'CFF',3748)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Amobarbital', '500MG/3mLX 12 mL', 'SUS',3747)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Azitromicina', '14 UI', 'JBE',3750)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Apalutamide', '12mg/ 4mLx 13mL', 'TAB',3752)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Arginine','12UI','SUS',3755)
+Insert into PRODUCTO_FARMACEUTICO VALUES ('Crizotinib', '250mg/ 5mLx 15mL', 'INY',3753)
+GO
+
+
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+Insert into PRODUCTO_SANITARIO VALUES ('CEPILLO DENTAL','Fsa','18g',3744)
+Insert into PRODUCTO_SANITARIO VALUES ('PASTAS DENTRIFICAS','Tbo','90g',3744)
+Insert into PRODUCTO_SANITARIO VALUES ('Desfibrilador', 'Gvt','5.15kg',3746)
+Insert into PRODUCTO_SANITARIO VALUES ('Audífono', 'Fes', '268g',3751)
+Insert into PRODUCTO_SANITARIO VALUES ('Bajalenguas', 'Dav', '0.28g',3752)
+Insert into PRODUCTO_SANITARIO VALUES ('Implante dental', 'Sus', '11g',3751)
+Insert into PRODUCTO_SANITARIO VALUES ('Estetoscopio', 'Sus', '20kg',3752)
+Insert into PRODUCTO_SANITARIO VALUES ('Equipo RX', 'Hyt', '3.8kg',3756)
+Insert into PRODUCTO_SANITARIO VALUES ('Bolsas de orina', 'Gks', '17g',3742)
+Insert into PRODUCTO_SANITARIO VALUES ('Vendas', 'Hts', '74g',3755)
+Insert into PRODUCTO_SANITARIO VALUES ('Guantes', 'Tab', '4.5g',3755)
+Insert into PRODUCTO_SANITARIO VALUES ('Jeringuillas', 'Sbs', '1g',3754)
+Insert into PRODUCTO_SANITARIO VALUES ('Agujas', 'Fat', '115g',3747)
+Insert into PRODUCTO_SANITARIO VALUES ('Máquinas de anestesia', 'Ags', '15kg',3753)
+Insert into PRODUCTO_SANITARIO VALUES ('Termómetros', 'Ftg', '270g',3748)
+GO
+
+/*PPPPPPPPPPPPPPPPPPPPPPPPPPPPP*/
+Insert into Vacuna VALUES ('Influenza', '1',3742)
+Insert into Vacuna VALUES ('Parotid', '2',3743)
+Insert into Vacuna VALUES ('Rubeola', '2',3744)
+Insert into Vacuna VALUES ('RotaVirus', '1',3745)
+Insert into Vacuna VALUES ('Antiamarilica', '3',3746)
+Insert into Vacuna VALUES ('Antineumoc', '1',3747)
+Insert into Vacuna VALUES ('Antitetanica', '1',3748)
+Insert into Vacuna VALUES ('VPH', '2',3749)
+Insert into Vacuna VALUES ('IPV', '2',3750)
+Insert into Vacuna VALUES ('Pentaval', '1',3751)
+GO
